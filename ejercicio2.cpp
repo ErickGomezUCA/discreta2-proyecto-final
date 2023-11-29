@@ -48,9 +48,15 @@ int main()
   double probabilidadSegundaBlanca = ((double)(contarSegundoBlanco) / numeroSimulaciones) * 100;
   double probabilidadTerceraBlanca = ((double)(contarTercerBlanco) / numeroSimulaciones) * 100;
 
-  cout << "Número de experimentos: " << numeroSimulaciones << endl;
-  cout << "Probabilidad de que la segunda bola sea blanca: " << probabilidadSegundaBlanca << "%" << endl;
-  cout << "Probabilidad de que la tercera bola sea blanca: " << probabilidadTerceraBlanca << "%" << endl;
+  cout << "* Número de experimentos: " << numeroSimulaciones << endl;
+
+  cout << "Segunda bola sea blanca:" << endl;
+  cout << "\tNúmero de veces contadas: " << contarSegundoBlanco << endl;
+  cout << "\tProbabilidad empírica: " << probabilidadSegundaBlanca << "%" << endl;
+
+  cout << "Tercera bola sea blanca:" << endl;
+  cout << "\tNúmero de veces contadas: " << contarTercerBlanco << endl;
+  cout << "\tProbabilidad empírica: " << probabilidadTerceraBlanca << "%" << endl;
   cout << endl;
 
   return 0;
