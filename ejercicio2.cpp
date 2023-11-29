@@ -12,8 +12,8 @@ int main()
 
   int numeroSimulaciones;
 
-  int contarSegundoBlanco = 0;
-  int contarTercerBlanco = 0;
+  int contarSegundaBlanca = 0;
+  int contarTerceraBlanca = 0;
 
   // Preguntar la cantidad de simulaciones
   cout << "Ingrese el número de experimentos:\n> ";
@@ -39,23 +39,23 @@ int main()
     }
 
     // Contar el evento cuando la segunda bola sea blanca
-    contarSegundoBlanco += (bolasSeleccionadas[1] == "blanco");
+    contarSegundaBlanca += (bolasSeleccionadas[1] == "blanco");
     // Contar el evento cuando la tercera bola sea blanca
-    contarTercerBlanco += (bolasSeleccionadas[2] == "blanco");
+    contarTerceraBlanca += (bolasSeleccionadas[2] == "blanco");
   }
 
   // Obtener las probabilidades
-  double probabilidadSegundaBlanca = ((double)(contarSegundoBlanco) / numeroSimulaciones) * 100;
-  double probabilidadTerceraBlanca = ((double)(contarTercerBlanco) / numeroSimulaciones) * 100;
+  double probabilidadSegundaBlanca = ((double)(contarSegundaBlanca) / numeroSimulaciones) * 100;
+  double probabilidadTerceraBlanca = ((double)(contarTerceraBlanca) / numeroSimulaciones) * 100;
 
   cout << "* Número de experimentos: " << numeroSimulaciones << endl;
 
   cout << "Segunda bola sea blanca:" << endl;
-  cout << "\tNúmero de veces contadas: " << contarSegundoBlanco << endl;
+  cout << "\tNúmero de veces contadas: " << contarSegundaBlanca << endl;
   cout << "\tProbabilidad empírica: " << probabilidadSegundaBlanca << "%" << endl;
 
   cout << "Tercera bola sea blanca:" << endl;
-  cout << "\tNúmero de veces contadas: " << contarTercerBlanco << endl;
+  cout << "\tNúmero de veces contadas: " << contarTerceraBlanca << endl;
   cout << "\tProbabilidad empírica: " << probabilidadTerceraBlanca << "%" << endl;
   cout << endl;
 
