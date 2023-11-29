@@ -3,60 +3,60 @@
 
 using namespace std;
 
-int GetRandomRange(int min, int max);
+int EnteroAleatorio(int min, int max);
 
 int main()
 {
   // Genera una semila aleatoria
   srand(time(NULL));
 
-  int numSimulations;
+  int numeroSimulaciones;
 
-  int secondWhiteCount = 0;
-  int thirdWhiteCount = 0;
+  int contarSegundoBlanco = 0;
+  int contarTercerBlanco = 0;
 
   // Preguntar la cantidad de simulaciones
-  cout << "Enter number of simulations:\n> ";
-  cin >> numSimulations;
+  cout << "Ingrese el número de experimentos:\n> ";
+  cin >> numeroSimulaciones;
 
   // Por cada simulación realizar:
-  for (int i = 0; i < numSimulations; ++i)
+  for (int i = 0; i < numeroSimulaciones; ++i)
   {
     // Crear vector con las 3 bolas negras y 2 blancas en una urna
-    vector<string> urn = {"black", "black", "black", "white", "white"};
+    vector<string> urna = {"negro", "negro", "negro", "blanco", "blanco"};
     // Crear vector para guardar las bolas que se vayan seleccionando
-    vector<string> selectedBalls;
+    vector<string> bolasSeleccionadas;
 
     // Por cada bola en la urna:
-    for (string ball : urn)
+    for (string bola : urna)
     {
       // Obtener un índice entre el primer valor y la cantidad máxima de bolas existentes en la urna
-      int index = GetRandomRange(0, urn.size() - 1);
+      int indice = EnteroAleatorio(0, urna.size() - 1);
       // Agarrar una bola de la urna con el índice generado
-      selectedBalls.push_back(urn[index]);
+      bolasSeleccionadas.push_back(urna[indice]);
       // Sacar la bola de la urna
-      urn.erase(urn.begin() + index);
+      urna.erase(urna.begin() + indice);
     }
 
     // Contar el evento cuando la segunda bola sea blanca
-    secondWhiteCount += (selectedBalls[1] == "white");
+    contarSegundoBlanco += (bolasSeleccionadas[1] == "blanco");
     // Contar el evento cuando la tercera bola sea blanca
-    thirdWhiteCount += (selectedBalls[2] == "white");
+    contarTercerBlanco += (bolasSeleccionadas[2] == "blanco");
   }
 
   // Obtener las probabilidades
-  double secondWhiteProbability = ((double)(secondWhiteCount) / numSimulations) * 100;
-  double thirdWhiteProbability = ((double)(thirdWhiteCount) / numSimulations) * 100;
+  double probabilidadSegundaBlanca = ((double)(contarSegundoBlanco) / numeroSimulaciones) * 100;
+  double probabilidadTerceraBlanca = ((double)(contarTercerBlanco) / numeroSimulaciones) * 100;
 
-  cout << "Number of simulations: " << numSimulations << endl;
-  cout << "Probability of second ball is white: " << secondWhiteProbability << "%" << endl;
-  cout << "Probability of third ball is white: " << thirdWhiteProbability << "%" << endl;
+  cout << "Número de experimentos: " << numeroSimulaciones << endl;
+  cout << "Probabilidad de que la segunda bola sea blanca: " << probabilidadSegundaBlanca << "%" << endl;
+  cout << "Probabilidad de que la tercera bola sea blanca: " << probabilidadTerceraBlanca << "%" << endl;
   cout << endl;
 
   return 0;
 }
 
-int GetRandomRange(int min, int max)
+int EnteroAleatorio(int min, int max)
 {
   return (rand() % (max - min + 1)) + min;
 }
